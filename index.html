@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income & Expenses Voucher</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Header Section -->
+        <header>
+            <h1>Income & Expenses Voucher</h1>
+            <p>Track your financial transactions easily</p>
+        </header>
+
+        <!-- Summary Cards Section -->
+        <div class="summary-cards">
+            <div class="summary-card total-income">
+                <h3>Total Income</h3>
+                <div class="amount">रु<span id="total-income">0.00</span></div>
+            </div>
+            <div class="summary-card total-expenses">
+                <h3>Total Expenses</h3>
+                <div class="amount">रु<span id="total-expenses">0.00</span></div>
+            </div>
+            <div class="summary-card balance">
+                <h3>Current Balance</h3>
+                <div class="amount">रु<span id="current-balance">0.00</span></div>
+            </div>
+        </div>
+
+        <!-- Voucher Section -->
+        <div class="voucher-container">
+
+            <!-- Add Voucher Form -->
+            <div class="voucher-form">
+                <h2><i class="fas fa-plus-circle"></i> Add New Voucher</h2>
+                <form id="voucherForm">
+
+                    <!-- Voucher Type -->
+                    <div class="form-group">
+                        <label for="voucherType">Type</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="income" name="voucherType" value="income" checked>
+                                <label for="income">Income</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="expense" name="voucherType" value="expense">
+                                <label for="expense">Expense</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amount Input -->
+                    <div class="form-group">
+                        <label for="amount">Amount (रु)</label>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+
+                    <!-- Category Selection -->
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select a category</option>
+                            <optgroup label="Income">
+                                <option value="salary">Salary</option>
+                                <option value="business">Business</option>
+                                <option value="investment">Investment</option>
+                                <option value="remittance">Remittance</option>
+                                <option value="other-income">Other</option>
+                            </optgroup>
+                            <optgroup label="Expense">
+                                <option value="food">Food</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="housing">Housing</option>
+                                <option value="utilities">Utilities</option>
+                                <option value="health">Health</option>
+                                <option value="education">Education</option>
+                                <option value="other-expense">Other</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Date Input -->
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <!-- Description Input -->
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" rows="3"
+                            placeholder="Add any details about this transaction"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Voucher
+                    </button>
+                </form>
+            </div>
+
+            <!-- Recent Vouchers List -->
+            <div class="voucher-list">
+                <h2><i class="fas fa-list"></i> Recent Vouchers</h2>
+                <div id="voucherItems">
+                    <div class="empty-state">
+                        <p>No vouchers added yet. Add your first transaction!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer / Creator Info -->
+        <div class="creator">
+            <p>Voucher system created by Tsering</p>
+        </div>
+
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
